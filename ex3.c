@@ -27,6 +27,12 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 // Used as uninitialized value for arrays (specifically, the cube array)
 #define DEFAULT_VALUE (-1)
 
+/* Assumptions (verified with exe file):
+    - If a type is initialized, I assume:
+        1. all other types of the brand are initialized
+        2. all other brands are initialized
+ */
+
 void printMenu() {
     printf("Welcome to the Cars Data Cube! What would you like to do?\n"
            "1.Enter Daily Data For A Brand\n"
@@ -89,6 +95,54 @@ int getUninitializedBrands(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], 
     return isDataCompleted;
 }
 
+/*
+ Gets cube, selected day for calculations and stats array that will contain the results
+ Sets stats to an array containing 5 required stats, by this order:
+    0: total sales
+    1: count of most sales a brand sold
+    2: the brand who sold the most
+    3: count of most sales a type sold
+    4: the type who sold the most
+ */
+void calculateDailyStats(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], int statsDay, int stats[]) {
+    int totalSales = 0, bestSellingBrand = 0, bestSellingType = 0, mostBrandSales = 0, mostTypeSales = 0;
+    int typeSales[NUM_OF_TYPES] = {0};
+
+    for (int carBrand = 0; carBrand < NUM_OF_BRANDS; carBrand++) {
+        int currentBrandSales = 0;
+
+        // Count brand sales, and insert type sales into typeSales array
+        for (int carType = 0; carType < NUM_OF_TYPES; carType++) {
+            int sales = cube[statsDay][carBrand][carType];
+            typeSales[carType] += sales;
+            currentBrandSales += sales;
+        }
+
+        // Find best-selling brand
+        if (currentBrandSales > mostBrandSales) {
+            mostBrandSales = currentBrandSales;
+            bestSellingBrand = carBrand;
+        }
+        totalSales += currentBrandSales;
+    }
+
+    // Find best-selling type
+    for (int carType = 0; carType < NUM_OF_TYPES; carType++) {
+        int sales = typeSales[carType];
+        if (sales > mostTypeSales) {
+            mostTypeSales = sales;
+            bestSellingType = carType;
+        }
+    }
+
+    // Assign calculation results to stats array
+    stats[0] = totalSales;
+    stats[1] = mostBrandSales;
+    stats[2] = bestSellingBrand;
+    stats[3] = mostTypeSales;
+    stats[4] = bestSellingType;
+}
+
 int main() {
     // Initialize all cube values to default values
     int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES];
@@ -110,6 +164,7 @@ int main() {
             case ADD_ONE:
                 scanBrandDailySales(cube, days);
                 break;
+
             case ADD_ALL:
                 // Init remainingBrands values to 0s, where 0 means uninitialized brand
                 int remainingBrands[NUM_OF_BRANDS] = {0};
@@ -133,6 +188,45 @@ int main() {
                     days[i]++;
                 }
                 break;
+
+            case STATS:
+                printf("What day would you like to analyze?\n");
+                int statsDay;
+                scanf("%d", &statsDay);
+
+                /* Validates:
+                    - statsDay is between 0 and max possible day (DAYS_IN_YEAR)
+                    - statsDay is a day with initialized data in cube
+                */
+                while (statsDay < 0 || statsDay > DAYS_IN_YEAR || cube[statsDay][0][0] == DEFAULT_VALUE) {
+                    printf("Please enter a valid day.\nWhat day would you like to analyze?\n");
+                    scanf("%d", &statsDay);
+                }
+
+                // Calculate required stats
+                int stats[5] = {0};
+                calculateDailyStats(cube, statsDay, stats);
+
+                // Print stats in given format
+                printf("In day number %d:\n"
+                       "The sales total was %d\n"
+                       "The best sold brand with %d sales was %s\n"
+                       "The best sold type with %d sales was %s\n",
+                       statsDay, stats[0], stats[1], brands[stats[2]], stats[3], types[stats[4]]);
+                break;
+
+            case PRINT:
+                break;
+
+            case INSIGHTS:
+                break;
+
+            case DELTAS:
+                break;
+
+            case DONE:
+                break;
+
             default:
                 printf("Invalid input\n");
         }
