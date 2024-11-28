@@ -155,12 +155,13 @@ int main() {
     }
 
     // Days array to keep track of the day for each brand
-    int days[NUM_OF_BRANDS] = {0};
+    int days[NUM_OF_BRANDS] = {1, 1, 1, 1, 1};
     int choice;
     printMenu();
     scanf("%d", &choice);
+
     while (choice != DONE) {
-        switch(choice) {
+        switch (choice) {
             case ADD_ONE:
                 scanBrandDailySales(cube, days);
                 break;
@@ -190,6 +191,7 @@ int main() {
                 break;
 
             case STATS:
+                // TODO day 0, wait for answer in forum. think about implications
                 printf("What day would you like to analyze?\n");
                 int statsDay;
                 scanf("%d", &statsDay);
@@ -216,6 +218,20 @@ int main() {
                 break;
 
             case PRINT:
+                printf("*****************************************\n");
+
+                // Print dataset in given format
+                for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
+                    printf("\nSales for %s:", brands[brand]);
+                    for (int day = 1; day < days[brand]; day++) {
+                        printf("\nDay %d-", day);
+                        for (int type = 0; type < NUM_OF_TYPES; type++) {
+                            printf(" %s: %d", types[type], cube[day][brand][type]);
+                        }
+                    }
+                }
+
+                printf("\n\n*****************************************\n");
                 break;
 
             case INSIGHTS:
