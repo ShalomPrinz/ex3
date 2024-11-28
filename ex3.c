@@ -27,6 +27,9 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 // Used as uninitialized value for arrays (specifically, the cube array)
 #define DEFAULT_VALUE (-1)
 
+#define FIRST_DAY 1
+
+// TODO are pointers allowed? arrays as parameters? forum
 /* Assumptions (verified with exe file):
     - If a type is initialized, I assume:
         1. all other types of the brand are initialized
@@ -42,6 +45,19 @@ void printMenu() {
            "5.Provide Overall (simple) Insights\n"
            "6.Provide Average Delta Metrics\n"
            "7.exit\n");
+}
+
+/*
+ Gets an array TODO
+ Sets etc.
+*/
+void findArrayMax(int array[], int length, int *index, int *sales) {
+    for (int i = 0; i < length; i++) {
+        if (array[i] > *sales) {
+            *sales = array[i];
+            *index = i;
+        }
+    }
 }
 
 /*
@@ -105,7 +121,7 @@ int getUninitializedBrands(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], 
     4: the type who sold the most
  */
 void calculateDailyStats(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], int statsDay, int stats[]) {
-    int totalSales = 0, bestSellingBrand = 0, bestSellingType = 0, mostBrandSales = 0, mostTypeSales = 0;
+    int totalSales = 0, bestSellingBrand = 0, mostBrandSales = 0;
     int typeSales[NUM_OF_TYPES] = {0};
 
     for (int carBrand = 0; carBrand < NUM_OF_BRANDS; carBrand++) {
@@ -127,13 +143,8 @@ void calculateDailyStats(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], in
     }
 
     // Find best-selling type
-    for (int carType = 0; carType < NUM_OF_TYPES; carType++) {
-        int sales = typeSales[carType];
-        if (sales > mostTypeSales) {
-            mostTypeSales = sales;
-            bestSellingType = carType;
-        }
-    }
+    int bestSellingType = 0, mostTypeSales = 0;
+    findArrayMax(typeSales, NUM_OF_TYPES, &bestSellingType, &mostTypeSales);
 
     // Assign calculation results to stats array
     stats[0] = totalSales;
@@ -155,7 +166,7 @@ int main() {
     }
 
     // Days array to keep track of the day for each brand
-    int days[NUM_OF_BRANDS] = {1, 1, 1, 1, 1};
+    int days[NUM_OF_BRANDS] = {FIRST_DAY, FIRST_DAY, FIRST_DAY, FIRST_DAY, FIRST_DAY};
     int choice;
     printMenu();
     scanf("%d", &choice);
@@ -191,7 +202,6 @@ int main() {
                 break;
 
             case STATS:
-                // TODO day 0, wait for answer in forum. think about implications
                 printf("What day would you like to analyze?\n");
                 int statsDay;
                 scanf("%d", &statsDay);
@@ -200,7 +210,7 @@ int main() {
                     - statsDay is between 0 and max possible day (DAYS_IN_YEAR)
                     - statsDay is a day with initialized data in cube
                 */
-                while (statsDay < 0 || statsDay > DAYS_IN_YEAR || cube[statsDay][0][0] == DEFAULT_VALUE) {
+                while (statsDay < FIRST_DAY || statsDay > DAYS_IN_YEAR || cube[statsDay][0][0] == DEFAULT_VALUE) {
                     printf("Please enter a valid day.\nWhat day would you like to analyze?\n");
                     scanf("%d", &statsDay);
                 }
@@ -223,7 +233,7 @@ int main() {
                 // Print dataset in given format
                 for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
                     printf("\nSales for %s:", brands[brand]);
-                    for (int day = 1; day < days[brand]; day++) {
+                    for (int day = FIRST_DAY; day < days[brand]; day++) {
                         printf("\nDay %d-", day);
                         for (int type = 0; type < NUM_OF_TYPES; type++) {
                             printf(" %s: %d", types[type], cube[day][brand][type]);
@@ -235,6 +245,44 @@ int main() {
                 break;
 
             case INSIGHTS:
+                int brandTotals[NUM_OF_BRANDS] = {0};
+                int daysTotals[DAYS_IN_YEAR] = {0};
+                int typeTotals[NUM_OF_TYPES] = {0};
+
+                for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
+                    int currentBrandSales = 0;
+                    for (int day = FIRST_DAY; day < days[brand]; day++) {
+                        int currentDaySales = 0;
+
+                        // Count all types sold of "brand" at "day"
+                        for (int type = 0; type < NUM_OF_TYPES; type++) {
+                            int sales = cube[day][brand][type];
+                            typeTotals[type] += sales;
+                            currentDaySales += sales;
+                        }
+                        daysTotals[day] += currentDaySales;
+                        currentBrandSales += currentDaySales;
+                    }
+                    brandTotals[brand] += currentBrandSales;
+                }
+
+                // Find best-selling type
+                int bsTypeIndex = 0, bsTypeSales = 0;
+                findArrayMax(typeTotals, NUM_OF_TYPES, &bsTypeIndex, &bsTypeSales);
+
+                // Find best-selling brand
+                int bsBrandIndex = 0, bsBrandSales = 0;
+                findArrayMax(brandTotals, NUM_OF_BRANDS, &bsBrandIndex, &bsBrandSales);
+
+                // Find best-selling day
+                int bsDayIndex = 0, bsDaySales = 0;
+                findArrayMax(daysTotals, DAYS_IN_YEAR, &bsDayIndex, &bsDaySales);
+
+                printf("The best-selling brand overall is %s: %d$\n"
+                       "The best-selling type of car is %s: %d$\n"
+                       "The most profitable day was day number %d: %d$\n",
+                       brands[bsBrandIndex], bsBrandSales, types[bsTypeIndex],
+                       bsTypeSales, bsDayIndex, bsDaySales);
                 break;
 
             case DELTAS:
