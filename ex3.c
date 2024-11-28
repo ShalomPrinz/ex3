@@ -52,10 +52,27 @@ int main() {
     int choice;
     printMenu();
     scanf("%d", &choice);
-    while(choice != DONE) {
+    while (choice != DONE) {
         switch(choice) {
             case ADD_ONE:
-                //...
+                printf("Enter a car brand, followed by 4 ints representing daily sales sum per brand:\n");
+                int carBrand;
+                scanf("%d", &carBrand);
+
+                // Validate carBrand is between 0 and max brand index available (= NUM_OF_BRANDS - 1)
+                if (carBrand < 0 || carBrand > NUM_OF_BRANDS - 1) {
+                    printf("This brand is not valid\n");
+                    printMenu();
+                    return 0;
+                }
+
+                // Insert values of all types sales to given brand in cube
+                int brandDay = days[carBrand];
+                int dailySales[NUM_OF_TYPES] = {0};
+                for (int carType = 0; carType < NUM_OF_TYPES; carType++) {
+                    scanf("%d", &dailySales[carType]);
+                    cube[brandDay][carBrand][carType] = dailySales[carType];
+                }
                 break;
             case ADD_ALL:
                 //...
