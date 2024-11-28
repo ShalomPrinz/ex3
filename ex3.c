@@ -26,14 +26,23 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 
 // Used as uninitialized value for arrays (specifically, the cube array)
 #define DEFAULT_VALUE (-1)
-
+// App first day
 #define FIRST_DAY 1
+// Minimum of days needed to calculate deltas (Part 6)
+#define MIN_DELTAS 3
 
 // TODO are pointers allowed? arrays as parameters? forum
-/* Assumptions (verified with exe file):
+
+// TODO average metrics
+//      - does it matter +- 0.0000?
+//      - doesn't calculate for
+
+/* Assumptions (verified with exe file / instructions file / forum answers):
     - If a type is initialized, I assume:
         1. all other types of the brand are initialized
         2. all other brands are initialized
+    - User will insert positive (>0) number on Part 3
+    - Part 1 will NOT BE USED as it can mess the system
  */
 
 void printMenu() {
@@ -62,8 +71,9 @@ void findArrayMax(int array[], int length, int *index, int *sales) {
 
 /*
  Gets cube and days arrays
- Returns to menu if scanned carBrand is invalid
+ Gets back to menu if scanned carBrand is invalid
  Scans daily sales for a specific brand, and inserts it to the cube
+ Returns -1 if no brand had been set, otherwise the set brand index
 */
 void scanBrandDailySales(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], int days[NUM_OF_BRANDS]) {
     int carBrand;
@@ -87,6 +97,8 @@ void scanBrandDailySales(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], in
         scanf("%d", &dailySales[carType]);
         cube[brandDay][carBrand][carType] = dailySales[carType];
     }
+    // Increase day counter for the brand set
+    days[carBrand]++;
 }
 
 /*
@@ -174,6 +186,7 @@ int main() {
     while (choice != DONE) {
         switch (choice) {
             case ADD_ONE:
+                printf("What brand?\n");
                 scanBrandDailySales(cube, days);
                 break;
 
@@ -193,11 +206,6 @@ int main() {
                     printf("\nPlease complete the data\n");
                     scanBrandDailySales(cube, days);
                     isDataCompleted = getUninitializedBrands(cube, days, remainingBrands);
-                }
-
-                // Increase days counter
-                for (int i = 0; i < NUM_OF_BRANDS; i++) {
-                    days[i]++;
                 }
                 break;
 
@@ -244,7 +252,7 @@ int main() {
                 printf("\n\n*****************************************\n");
                 break;
 
-            case INSIGHTS:
+            case INSIGHTS: {
                 int brandTotals[NUM_OF_BRANDS] = {0};
                 int daysTotals[DAYS_IN_YEAR] = {0};
                 int typeTotals[NUM_OF_TYPES] = {0};
@@ -284,8 +292,31 @@ int main() {
                        brands[bsBrandIndex], bsBrandSales, types[bsTypeIndex],
                        bsTypeSales, bsDayIndex, bsDaySales);
                 break;
+            }
 
             case DELTAS:
+                for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
+                    int daysTotal[DAYS_IN_YEAR] = {0};
+                    int day = FIRST_DAY;
+                    for (; day < days[brand]; day++) {
+                        int currentDaySales = 0;
+                        for (int type = 0; type < NUM_OF_TYPES; type++)
+                            currentDaySales += cube[day][brand][type];
+                        daysTotal[day] += currentDaySales;
+                    }
+
+                    int deltasCount = day - 1;
+                    float averageDeltaMetric = 0;
+                    // Calculates deltas average if enough data is gathered
+                    if (deltasCount >= MIN_DELTAS) {
+                        int nominator = 0;
+                        for (int d = FIRST_DAY + 1; d < day; d++) {
+                            nominator += daysTotal[d] - daysTotal[d - 1];
+                        }
+                        averageDeltaMetric = (float) nominator / (float) deltasCount;
+                    }
+                    printf("Brand: %s, Average Delta: %.6f\n", brands[brand], averageDeltaMetric);
+                }
                 break;
 
             case DONE:
