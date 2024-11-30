@@ -29,13 +29,9 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 // App first day
 #define FIRST_DAY 1
 // Minimum of days needed to calculate deltas (Part 6)
-#define MIN_DELTAS 3
+#define MIN_DELTAS 1
 
 // TODO are pointers allowed? arrays as parameters? forum
-
-// TODO average metrics
-//      - does it matter +- 0.0000?
-//      - doesn't calculate for
 
 /* Assumptions (verified with exe file / instructions file / forum answers):
     - If a type is initialized, I assume:
@@ -73,7 +69,6 @@ void findArrayMax(int array[], int length, int *index, int *sales) {
  Gets cube and days arrays
  Gets back to menu if scanned carBrand is invalid
  Scans daily sales for a specific brand, and inserts it to the cube
- Returns -1 if no brand had been set, otherwise the set brand index
 */
 void scanBrandDailySales(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], int days[NUM_OF_BRANDS]) {
     int carBrand;
@@ -84,7 +79,6 @@ void scanBrandDailySales(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], in
      Validates:
         - carBrand is between 0 and max brand index available (= NUM_OF_BRANDS - 1)
         - carBrand at brandDay isn't already set
-        // TODO Before submit - check their exe works by cube[][][0]
     */
     if (carBrand < 0 || carBrand > NUM_OF_BRANDS - 1 || cube[brandDay][carBrand][0] != DEFAULT_VALUE) {
         printf("This brand is not valid\n");
@@ -97,8 +91,6 @@ void scanBrandDailySales(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], in
         scanf("%d", &dailySales[carType]);
         cube[brandDay][carBrand][carType] = dailySales[carType];
     }
-    // Increase day counter for the brand set
-    days[carBrand]++;
 }
 
 /*
@@ -114,7 +106,6 @@ int getUninitializedBrands(int cube[DAYS_IN_YEAR][NUM_OF_BRANDS][NUM_OF_TYPES], 
     int isDataCompleted = 1;
     for (int carBrand = 0; carBrand < NUM_OF_BRANDS; carBrand++) {
         int brandDay = days[carBrand];
-        // TODO assuming first is all, like the todo in scanBrandDailySales()
         if (cube[brandDay][carBrand][0] == DEFAULT_VALUE)
             isDataCompleted = 0;
         else
@@ -188,6 +179,7 @@ int main() {
             case ADD_ONE:
                 printf("What brand?\n");
                 scanBrandDailySales(cube, days);
+                // TODO missing days[brandSet]++, but irrelevant due to instructions
                 break;
 
             case ADD_ALL:
@@ -206,6 +198,11 @@ int main() {
                     printf("\nPlease complete the data\n");
                     scanBrandDailySales(cube, days);
                     isDataCompleted = getUninitializedBrands(cube, days, remainingBrands);
+                }
+
+                // Increase days counter for all brands
+                for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
+                    days[brand]++;
                 }
                 break;
 
@@ -252,7 +249,7 @@ int main() {
                 printf("\n\n*****************************************\n");
                 break;
 
-            case INSIGHTS: {
+            case INSIGHTS:
                 int brandTotals[NUM_OF_BRANDS] = {0};
                 int daysTotals[DAYS_IN_YEAR] = {0};
                 int typeTotals[NUM_OF_TYPES] = {0};
@@ -292,10 +289,10 @@ int main() {
                        brands[bsBrandIndex], bsBrandSales, types[bsTypeIndex],
                        bsTypeSales, bsDayIndex, bsDaySales);
                 break;
-            }
 
             case DELTAS:
                 for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
+                    // calculate sales of "brand" per day
                     int daysTotal[DAYS_IN_YEAR] = {0};
                     int day = FIRST_DAY;
                     for (; day < days[brand]; day++) {
@@ -305,15 +302,16 @@ int main() {
                         daysTotal[day] += currentDaySales;
                     }
 
-                    int deltasCount = day - 1;
+                    // Calculate average delta metrics on "daysTotal" array
+                    int lastDay = day - 1; // last day with data
+                    // deltas are sales changes between a day to the next day, where "changes" could be 0
+                    int deltasCount = lastDay - FIRST_DAY;
                     float averageDeltaMetric = 0;
                     // Calculates deltas average if enough data is gathered
                     if (deltasCount >= MIN_DELTAS) {
-                        int nominator = 0;
-                        for (int d = FIRST_DAY + 1; d < day; d++) {
-                            nominator += daysTotal[d] - daysTotal[d - 1];
-                        }
-                        averageDeltaMetric = (float) nominator / (float) deltasCount;
+                        // nominator of average delta = last day sales minus first day sales
+                        int edgesDelta = daysTotal[lastDay] - daysTotal[FIRST_DAY];
+                        averageDeltaMetric = (float) edgesDelta / (float) deltasCount;
                     }
                     printf("Brand: %s, Average Delta: %.6f\n", brands[brand], averageDeltaMetric);
                 }
