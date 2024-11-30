@@ -1,0 +1,763 @@
+- name: On start: exit
+  input: |
+7
+  output: |
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Goodbye!
+
+- name: On start: print all data
+  input: |
+4 7
+  output: |
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+*****************************************
+
+Sales for Toyoga:
+Sales for HyunNight:
+Sales for Mazduh:
+Sales for FolksVegan:
+Sales for Key-Yuh:
+
+*****************************************
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Goodbye!
+
+- name: On start: metrics
+  input: |
+6 7
+  output: |
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: 0.000000
+Brand: HyunNight, Average Delta: 0.000000
+Brand: Mazduh, Average Delta: 0.000000
+Brand: FolksVegan, Average Delta: 0.000000
+Brand: Key-Yuh, Average Delta: 0.000000
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Goodbye!
+
+- name: Their test
+  input: |
+2
+0 1 1 1 1
+1 2 1 1 1
+2 1 1 1 3
+3 1 1 1 1
+4 1 1 1 1
+2
+0 1 1 1 1
+1 2 1 1 4
+2 1 1 1 3
+3 20 1 1 1
+4 1 1 1 1
+2
+0 1 1 1 1
+1 2 1 3 1
+2 1 1 1 3
+3 1 1 1 1
+4 1 1 1 1
+2
+0 1 1 1 1
+1 2 2 3 3
+2 1 1 1 3
+3 1 1 1 1
+4 1 1 1 1
+3
+5
+4
+4
+5
+6
+7
+  output: |
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+What day would you like to analyze?
+Please enter a valid day.
+What day would you like to analyze?
+In day number 4:
+The sales total was 28
+The best sold brand with 10 sales was HyunNight
+The best sold type with 9 sales was GT
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+*****************************************
+
+Sales for Toyoga:
+Day 1- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 2- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 3- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 4- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Sales for HyunNight:
+Day 1- SUV: 2 Sedan: 1 Coupe: 1 GT: 1
+Day 2- SUV: 2 Sedan: 1 Coupe: 1 GT: 4
+Day 3- SUV: 2 Sedan: 1 Coupe: 3 GT: 1
+Day 4- SUV: 2 Sedan: 2 Coupe: 3 GT: 3
+Sales for Mazduh:
+Day 1- SUV: 1 Sedan: 1 Coupe: 1 GT: 3
+Day 2- SUV: 1 Sedan: 1 Coupe: 1 GT: 3
+Day 3- SUV: 1 Sedan: 1 Coupe: 1 GT: 3
+Day 4- SUV: 1 Sedan: 1 Coupe: 1 GT: 3
+Sales for FolksVegan:
+Day 1- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 2- SUV: 20 Sedan: 1 Coupe: 1 GT: 1
+Day 3- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 4- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Sales for Key-Yuh:
+Day 1- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 2- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 3- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+Day 4- SUV: 1 Sedan: 1 Coupe: 1 GT: 1
+
+*****************************************
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+The best-selling brand overall is FolksVegan: 35$
+The best-selling type of car is SUV: 43$
+The most profitable day was day number 2: 45$
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: 0.000000
+Brand: HyunNight, Average Delta: 1.666667
+Brand: Mazduh, Average Delta: 0.000000
+Brand: FolksVegan, Average Delta: 0.000000
+Brand: Key-Yuh, Average Delta: 0.000000
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Goodbye!
+
+- name: Chatgpt 1
+  input: |
+2
+0 3 2 1 4
+1 4 1 3 2
+2 5 3 2 1
+3 1 2 4 5
+4 6 1 1 2
+2
+0 2 2 1 3
+1 1 3 2 4
+2 4 1 3 5
+3 3 2 2 1
+4 2 5 4 4
+2
+0 3 1 2 2
+1 2 4 1 3
+2 3 2 3 1
+3 1 1 4 4
+4 4 3 2 5
+2
+0 1 2 3 1
+1 3 4 2 1
+2 4 1 5 3
+3 5 2 3 1
+4 2 1 4 2
+4
+6
+6
+5
+5
+3
+2
+7
+  output: |
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+*****************************************
+
+Sales for Toyoga:
+Day 1- SUV: 3 Sedan: 2 Coupe: 1 GT: 4
+Day 2- SUV: 2 Sedan: 2 Coupe: 1 GT: 3
+Day 3- SUV: 3 Sedan: 1 Coupe: 2 GT: 2
+Day 4- SUV: 1 Sedan: 2 Coupe: 3 GT: 1
+Sales for HyunNight:
+Day 1- SUV: 4 Sedan: 1 Coupe: 3 GT: 2
+Day 2- SUV: 1 Sedan: 3 Coupe: 2 GT: 4
+Day 3- SUV: 2 Sedan: 4 Coupe: 1 GT: 3
+Day 4- SUV: 3 Sedan: 4 Coupe: 2 GT: 1
+Sales for Mazduh:
+Day 1- SUV: 5 Sedan: 3 Coupe: 2 GT: 1
+Day 2- SUV: 4 Sedan: 1 Coupe: 3 GT: 5
+Day 3- SUV: 3 Sedan: 2 Coupe: 3 GT: 1
+Day 4- SUV: 4 Sedan: 1 Coupe: 5 GT: 3
+Sales for FolksVegan:
+Day 1- SUV: 1 Sedan: 2 Coupe: 4 GT: 5
+Day 2- SUV: 3 Sedan: 2 Coupe: 2 GT: 1
+Day 3- SUV: 1 Sedan: 1 Coupe: 4 GT: 4
+Day 4- SUV: 5 Sedan: 2 Coupe: 3 GT: 1
+Sales for Key-Yuh:
+Day 1- SUV: 6 Sedan: 1 Coupe: 1 GT: 2
+Day 2- SUV: 2 Sedan: 5 Coupe: 4 GT: 4
+Day 3- SUV: 4 Sedan: 3 Coupe: 2 GT: 5
+Day 4- SUV: 2 Sedan: 1 Coupe: 4 GT: 2
+
+*****************************************
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: -1.000000
+Brand: HyunNight, Average Delta: 0.000000
+Brand: Mazduh, Average Delta: 0.666667
+Brand: FolksVegan, Average Delta: -0.333333
+Brand: Key-Yuh, Average Delta: -0.333333
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: -1.000000
+Brand: HyunNight, Average Delta: 0.000000
+Brand: Mazduh, Average Delta: 0.666667
+Brand: FolksVegan, Average Delta: -0.333333
+Brand: Key-Yuh, Average Delta: -0.333333
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+The best-selling brand overall is Key-Yuh: 48$
+The best-selling type of car is SUV: 59$
+The most profitable day was day number 2: 54$
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+The best-selling brand overall is Key-Yuh: 48$
+The best-selling type of car is SUV: 59$
+The most profitable day was day number 2: 54$
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+What day would you like to analyze?
+In day number 2:
+The sales total was 54
+The best sold brand with 15 sales was Key-Yuh
+The best sold type with 17 sales was GT
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Goodbye!
+
+- name: Chatgpt 2
+  input: |
+2
+0 1 1 1 0
+1 3 2 2 1
+2 0 4 1 2
+3 5 1 0 3
+4 2 3 3 0
+2
+0 0 0 0 0
+1 6 2 1 1
+2 3 0 4 5
+3 1 7 2 2
+4 2 1 0 8
+2
+0 1 10 0 0
+1 4 0 5 2
+2 3 3 3 3
+3 0 6 4 1
+4 7 2 0 1
+2
+0 2 0 0 2
+1 3 1 1 0
+2 0 3 3 0
+3 4 5 2 2
+4 2 1 4 3
+2
+0 9 0 1 1
+1 2 0 2 4
+2 1 1 5 0
+3 2 2 3 3
+4 4 6 0 0
+6
+6
+6
+5
+5
+5
+3
+2
+3
+1
+4
+7
+  output: |
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands HyunNight Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands Mazduh FolksVegan Key-Yuh
+Please complete the data
+No data for brands FolksVegan Key-Yuh
+Please complete the data
+No data for brands Key-Yuh
+Please complete the data
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: 2.000000
+Brand: HyunNight, Average Delta: 0.000000
+Brand: Mazduh, Average Delta: 0.000000
+Brand: FolksVegan, Average Delta: 0.250000
+Brand: Key-Yuh, Average Delta: 0.500000
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: 2.000000
+Brand: HyunNight, Average Delta: 0.000000
+Brand: Mazduh, Average Delta: 0.000000
+Brand: FolksVegan, Average Delta: 0.250000
+Brand: Key-Yuh, Average Delta: 0.500000
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Brand: Toyoga, Average Delta: 2.000000
+Brand: HyunNight, Average Delta: 0.000000
+Brand: Mazduh, Average Delta: 0.000000
+Brand: FolksVegan, Average Delta: 0.250000
+Brand: Key-Yuh, Average Delta: 0.500000
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+The best-selling brand overall is FolksVegan: 55$
+The best-selling type of car is SUV: 67$
+The most profitable day was day number 3: 55$
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+The best-selling brand overall is FolksVegan: 55$
+The best-selling type of car is SUV: 67$
+The most profitable day was day number 3: 55$
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+The best-selling brand overall is FolksVegan: 55$
+The best-selling type of car is SUV: 67$
+The most profitable day was day number 3: 55$
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+What day would you like to analyze?
+In day number 2:
+The sales total was 45
+The best sold brand with 12 sales was Mazduh
+The best sold type with 16 sales was GT
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+What day would you like to analyze?
+In day number 1:
+The sales total was 35
+The best sold brand with 9 sales was FolksVegan
+The best sold type with 11 sales was SUV
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+*****************************************
+
+Sales for Toyoga:
+Day 1- SUV: 1 Sedan: 1 Coupe: 1 GT: 0
+Day 2- SUV: 0 Sedan: 0 Coupe: 0 GT: 0
+Day 3- SUV: 1 Sedan: 10 Coupe: 0 GT: 0
+Day 4- SUV: 2 Sedan: 0 Coupe: 0 GT: 2
+Day 5- SUV: 9 Sedan: 0 Coupe: 1 GT: 1
+Sales for HyunNight:
+Day 1- SUV: 3 Sedan: 2 Coupe: 2 GT: 1
+Day 2- SUV: 6 Sedan: 2 Coupe: 1 GT: 1
+Day 3- SUV: 4 Sedan: 0 Coupe: 5 GT: 2
+Day 4- SUV: 3 Sedan: 1 Coupe: 1 GT: 0
+Day 5- SUV: 2 Sedan: 0 Coupe: 2 GT: 4
+Sales for Mazduh:
+Day 1- SUV: 0 Sedan: 4 Coupe: 1 GT: 2
+Day 2- SUV: 3 Sedan: 0 Coupe: 4 GT: 5
+Day 3- SUV: 3 Sedan: 3 Coupe: 3 GT: 3
+Day 4- SUV: 0 Sedan: 3 Coupe: 3 GT: 0
+Day 5- SUV: 1 Sedan: 1 Coupe: 5 GT: 0
+Sales for FolksVegan:
+Day 1- SUV: 5 Sedan: 1 Coupe: 0 GT: 3
+Day 2- SUV: 1 Sedan: 7 Coupe: 2 GT: 2
+Day 3- SUV: 0 Sedan: 6 Coupe: 4 GT: 1
+Day 4- SUV: 4 Sedan: 5 Coupe: 2 GT: 2
+Day 5- SUV: 2 Sedan: 2 Coupe: 3 GT: 3
+Sales for Key-Yuh:
+Day 1- SUV: 2 Sedan: 3 Coupe: 3 GT: 0
+Day 2- SUV: 2 Sedan: 1 Coupe: 0 GT: 8
+Day 3- SUV: 7 Sedan: 2 Coupe: 0 GT: 1
+Day 4- SUV: 2 Sedan: 1 Coupe: 4 GT: 3
+Day 5- SUV: 4 Sedan: 6 Coupe: 0 GT: 0
+
+*****************************************
+Welcome to the Cars Data Cube! What would you like to do?
+1.Enter Daily Data For A Brand
+2.Populate A Day Of Sales For All Brands
+3.Provide Daily Stats
+4.Print All Data
+5.Provide Overall (simple) Insights
+6.Provide Average Delta Metrics
+7.exit
+Goodbye!
